@@ -48,6 +48,20 @@ def welcome():
         f"/api/v1.0/temp/start/end"
     )
 
+@app.route("/api/v1.0/precipitation")
+def precipitation():
+    """Return the precipitation data for the last year"""
+    # Calculate the date 1 year ago from last date in database
+    prev_year = dt.date(2017, 8, 23) - dt.timedelta(days=365)
 
+    # Query for the date and precipitation for the last year
+    precipitation = session.query(Measurement.date, Measurement.prcp).\
+        filter(Measurement.date >= prev_year).all()
+
+    # Dict with date as the key and prcp as the value
+    precip = {date: prcp for date, prcp in precipitation}
+    return jsonify(precip)
+
+    
 if __name__ == '__main__':
     app.run()
