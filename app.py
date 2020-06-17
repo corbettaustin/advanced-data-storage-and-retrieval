@@ -62,6 +62,14 @@ def precipitation():
     precip = {date: prcp for date, prcp in precipitation}
     return jsonify(precip)
 
+@app.route("/api/v1.0/stations")
+def stations():
+    """Return a list of stations."""
+    results = session.query(Station.station).all()
+
+    # Unravel results into a 1D array and convert to a list
+    stations = list(np.ravel(results))
+    return jsonify(stations)
     
 if __name__ == '__main__':
     app.run()
