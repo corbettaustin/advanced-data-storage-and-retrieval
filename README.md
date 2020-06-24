@@ -94,6 +94,9 @@ Now that you have completed your initial analysis, design a Flask API based on t
 
 - - -
 
+![image](https://user-images.githubusercontent.com/19176084/85503589-a7f55980-b5af-11ea-82a6-6e4b2e85a141.png)
+
+
 ### Optional: Other Recommended Analyses
 
 * The following are optional challenge queries. These are highly recommended to attempt, but not required for the homework.
